@@ -1,0 +1,119 @@
+﻿@model ClientsList.Models.Cleint
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 class="form-control" style="width:600px;height:50px; text-align:center; margin-left:220px;background-color:#F76400;color:white; font-size:23px;"><strong>  Client Details</strong></h2>
+
+
+<div>
+    
+    <hr />
+    <div style="width:100%; height:200px;background-color:#F1F1F1;">
+        <br />
+         <p class="form-control " style="width:350px;height:38px; text-align:center; margin-left:270px;background-color:#0065B3;color:white; font-size:18px;" id="demo"> </p>
+
+        <div class="form-group  col-md-6" style="float:left;height:10px;">
+
+            @Html.LabelFor(model => model.ClientName, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+            <div class="col-md-7">
+                <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.ClientName)</h5>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6" style="float:left; height:10px;">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+            <div class="col-md-7">
+                <h5 style="font-size:17px;"><strong>:</strong>  @Html.DisplayFor(model => model.Address)</h5>
+            </div>
+        </div>
+        <div class="form-group col-md-6" style="float:left;height:10px; ">
+            @Html.LabelFor(model => model.PhoneNo, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+            <div class="col-md-7">
+                <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.PhoneNo)</h5>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6" style="float:left; height:10px;">
+            @Html.LabelFor(model => model.ProductModel, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+            <div class="col-md-7">
+                <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.ProductModel)</h5>
+            </div>
+        </div>
+        <div class="form-group col-md-6" style="float:left; height:10px;">
+            @Html.LabelFor(model => model.SetupDate, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+            <div class="col-md-7">
+                <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.SetupDate)</h5>
+            </div>
+        </div>
+        <div class="form-group col-md-6" style="float:left; height:10px;">
+            @Html.LabelFor(model => model.OldServiceDate, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+            <div class="col-md-7">
+                <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.OldServiceDate)</h5>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6" style="float:left; height:10px;">
+            @Html.LabelFor(model => model.ServiceDate, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+            <div class="col-md-7">
+                <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.ServiceDate)</h5>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6" style="float:left; height:10px;">
+            @Html.LabelFor(model => model.NextServiceDate, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+            <div class="col-md-7">
+                <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.NextServiceDate)</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    
+    <a href="@Url.Action( "Index","Cleints" ) ">
+        <img src="@Url.Content("~/Files/back.png") " style="height:50px; width:50px;" />
+    </a>
+    <button class="btn btn-warning" style="color:white;">
+     @Html.ActionLink("Edit", "Edit", new { id = Model.ClientID }, new { style = "text-decoration:none;color:white;" }) 
+    </button>
+  
+</p>
+
+<script>
+
+    // Set the date we're counting down to
+
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            var countDownDate = new Date("  @Html.DisplayFor(model => model.NextServiceDate)").getTime();
+
+            // Get todays date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            // If the count down is over, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
+
+        </script>

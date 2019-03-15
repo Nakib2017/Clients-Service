@@ -1,0 +1,212 @@
+﻿@model IEnumerable<ClientsList.Models.Cleint>
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2 class="form-control" style="width:600px;height:50px; text-align:center; margin-left:220px;background-color:#F76400;color:white; font-size:23px;"><strong>  Client Service List</strong></h2>
+
+@using (Html.BeginForm("ClientListIndex", "Cleints", FormMethod.Get))
+{
+    <p>
+        <input type="text" name="searchString" class="col-lg-8" style="margin-left: 400px; margin-right: 5px;text-align:center; height:35px; font-size:15px" placeholder="Search Client " />
+
+
+        <button type="submit" class="btn btn-warning">Search</button>
+    </p>
+}
+
+
+
+
+  
+    <a href="@Url.Action( "Create","Cleints") ">
+        <img src="@Url.Content("~/Files/creat.png") " style="height:80px; width:80px;" />
+    </a>
+
+  
+
+
+
+    <table class="table">
+        <tr style="background-color:#0065B3; color:white;">
+            <th>
+                <h7> Status</h7>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientName)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductModel)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextServiceDate)
+            </th>
+            <th></th>
+        </tr>
+        
+        @foreach (var item in Model)
+        {
+
+            if ( item.NextServiceDate < DateTime.Today )
+            {
+        <tr  >
+            <td>
+                <div style="height:20px;width:20px;">
+                    <img src="~/Img/red.gif" style="height:100%;width:100%;"/>
+                </div>
+            </td>
+            <td >
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+        
+            <td >
+                @Html.DisplayFor(modelItem => item.PhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductModel)
+            </td>
+
+            <td >
+                @Html.DisplayFor(modelItem => item.ServiceDate)
+            </td>
+
+            <td >
+                @Html.DisplayFor(modelItem => item.NextServiceDate)
+
+            </td>
+  
+            <td>
+                <a href="@Url.Action( "Edit","Cleints", new { id=item.ClientID } ) ">
+                    <img src="@Url.Content("~/Files/edit.png") " style="height:50px; width:50px;" />
+                </a>
+                <a href="@Url.Action( "Details","Cleints", new { id=item.ClientID } ) ">
+                    <img src="@Url.Content("~/Files/dtails.png") " style="height:50px; width:50px;" />
+                </a>
+
+                <a href="@Url.Action( "Delete","Cleints", new { id=item.ClientID } ) ">
+                    <img src="@Url.Content("~/Files/delete.png") " style="height:50px; width:50px;" />
+                </a>
+               
+            </td>
+
+           
+        </tr>
+
+
+
+            }
+
+           else if ( item.NextServiceDate == DateTime.Today)
+            {
+                <tr>
+                    <td>
+                        <div style="height:20px;width:20px;">
+                            <img src="~/Img/Yellow.gif" style="height:100%;width:100%;" />
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientName)
+                    </td>
+                
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductModel)
+                    </td>
+                 
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ServiceDate)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NextServiceDate)
+
+                    </td>
+
+                    <td>
+                        <a href="@Url.Action( "Edit","Cleints", new { id=item.ClientID } ) ">
+                            <img src="@Url.Content("~/Files/edit.png") " style="height:50px; width:50px;" />
+                        </a>
+                        <a href="@Url.Action( "Details","Cleints", new { id=item.ClientID } ) ">
+                            <img src="@Url.Content("~/Files/dtails.png") " style="height:50px; width:50px;" />
+                        </a>
+
+                        <a href="@Url.Action( "Delete","Cleints", new { id=item.ClientID } ) ">
+                            <img src="@Url.Content("~/Files/delete.png") " style="height:50px; width:50px;" />
+                        </a>
+                    </td>
+
+
+                </tr>
+
+
+
+            }
+
+            else
+            {
+                <tr>
+                    <td>
+                        <div style="height:20px;width:20px;">
+                            <img src="~/Img/green.gif" style="height:100%;width:100%;" />
+                        </div>
+</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientName)
+                    </td>
+           
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductModel)
+                    </td>
+              
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ServiceDate)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NextServiceDate)
+
+                    </td>
+
+                    <td>
+                        <a href="@Url.Action( "Edit","Cleints", new { id=item.ClientID } ) ">
+                            <img src="@Url.Content("~/Files/edit.png") " style="height:50px; width:50px;" />
+                        </a>
+                        <a href="@Url.Action( "Details","Cleints", new { id=item.ClientID } ) ">
+                            <img src="@Url.Content("~/Files/dtails.png") " style="height:50px; width:50px;" />
+                        </a>
+
+                        <a href="@Url.Action( "Delete","Cleints", new { id=item.ClientID } ) ">
+                            <img src="@Url.Content("~/Files/delete.png") " style="height:50px; width:50px;" />
+                        </a>
+                    </td>
+
+                    
+                </tr>
+
+
+
+            }
+        }
+    </table>
+
+
+
+
+

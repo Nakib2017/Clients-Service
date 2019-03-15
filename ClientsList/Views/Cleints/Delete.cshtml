@@ -1,0 +1,50 @@
+﻿@model ClientsList.Models.Cleint
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="form-control" style="width:600px;height:50px; text-align:center; margin-left:220px;background-color:#F76400;color:white; font-size:23px;"><strong> Clients Delete Page</strong></h2>
+
+<h3>Are you sure you want to delete this Employee Profile?</h3><div>
+   
+    <hr />
+    <div style="height:100px;width:100%; background-color:#F1F1F1;">
+
+        
+       
+
+        <div class="form-group " style="margin-left:300px; margin-top:10px;">
+            @Html.LabelFor(model => model.ClientName, htmlAttributes: new { @class = "control-label col-md-3", style = "text-align:left;" })
+            <div class="col-md-9">
+                <h4>@Html.DisplayFor(model => model.ClientName)</h4>
+
+            </div>
+        </div>
+        <div class="form-group " style="margin-left:300px;">
+            @Html.LabelFor(model => model.PhoneNo, htmlAttributes: new { @class = "control-label col-md-3", style = "text-align:left;" })
+            <div class="col-md-9">
+                <h4>@Html.DisplayFor(model => model.PhoneNo) </h4>
+            </div>
+        </div>
+
+
+        <hr />
+
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <a href="@Url.Action( "Index","Cleints" ) ">
+                <img src="@Url.Content("~/Files/back.png") " style="height:50px; width:50px;" />
+            </a>
+            <input type="submit" value="Yes,Confirm  Delete" class="btn btn-danger" />
+            
+        </div>
+    }
+</div>

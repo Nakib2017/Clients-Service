@@ -1,0 +1,399 @@
+﻿@model ClientsList.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2 class="form-control" style="width:600px;height:50px; text-align:center; margin-left:220px;background-color:green;color:white; font-size:18px;"><strong> Employee Details</strong></h2>
+<hr />
+
+
+
+  
+
+    <div class="form-horizontal">
+       
+        <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:350px;background-color:#16B7E2;color:white; font-size:18px;"><strong> Employee Imformation</strong></h4>
+        <hr />
+   
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div style="height:450px;width:100%; background-color:#F1F1F1; ">
+
+            <div class="form-group " style="margin-top:20px; margin-left:260px;">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-10">
+
+
+                    <img src="~/Files/@Url.Content(Model.ImageName)" style="width:200px; height:200px;margin-left:0px; "><br/>
+                   
+
+
+                </div>
+            </div>
+            <div class="form-group " style="margin-top:20px; margin-left:290px;">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-10">
+
+
+                   
+                    <h4><strong>@Html.DisplayFor(model => model.EmployeeName)</strong> </h4>
+                    <h4> @Html.DisplayFor(model => model.Designation)</h4>
+
+
+                </div>
+            </div>
+
+
+           
+
+            <hr />
+
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.PhoneNo, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-6">
+
+                    <h5 style="font-size:17px;"><strong>:</strong>  @Html.DisplayFor(model => model.PhoneNo)</h5>
+
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.GovtIdNo, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;m" })
+                <div class="col-md-6">
+                    <h5 style="font-size:17px;"><strong>:</strong>  @Html.DisplayFor(model => model.GovtIdNo)</h5>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.OfficeId, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-6">
+                   
+                    <h5 style="font-size:17px;"><strong>:</strong>  @Html.DisplayFor(model => model.OfficeId)</h5>
+</div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.Experience, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-6">
+                    <h5 style="font-size:17px;"><strong>:</strong>  @Html.DisplayFor(model => model.Experience)</h5>
+</div>
+            </div>
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.PresentAddress, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-6">
+                    <h5 style="font-size:17px;"><strong>:</strong>  @Html.DisplayFor(model => model.PresentAddress)</h5>
+</div>
+            </div>
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.permanentAddress, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-6">
+                    <h5 style="font-size:17px;"><strong>:</strong>  @Html.DisplayFor(model => model.permanentAddress)</h5>
+</div>
+            </div>
+
+        </div>
+
+        
+        <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:350px;background-color:#16B7E2;color:white; font-size:18px;"><strong>Educational Qualification</strong></h4>
+        <hr />
+
+        <div style="width:100%; height:200px; background-color:#F1F1F1; ">
+
+            <div class="form-group col-md-6" style="float:left; height:70px;" >
+                <h4 class="form-control" style="width:100px;height:38px; text-align:center; margin-left:80px;background-color:#0065B3;color:white; font-size:18px;"><strong>SSC</strong></h4>
+                @Html.LabelFor(model => model.SSC, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.SSC)</h5>
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;height:70px;">
+                <h4 class="form-control" style="width:100px;height:38px; text-align:center; margin-left:80px;background-color:#0065B3;color:white; font-size:18px;"><strong>HSC</strong></h4>
+                @Html.LabelFor(model => model.HSC, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.HSC)</h5>
+                </div>
+            </div>
+
+
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.SBroad, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.SBroad)</h5>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.HBroad, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.HBroad)</h5>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.SYear, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.SYear)</h5>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left; height:10px;">
+                @Html.LabelFor(model => model.HYear, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.HYear)</h5>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div style="width:100%; height:180px;background-color:#F1F1F1; ">
+
+            <div class="form-group col-md-6" style="float:left;height:70px;">
+
+                <h4 class="form-control" style="width:100px;height:38px; text-align:center; margin-left:80px;background-color:#0065B3;color:white; font-size:18px;"><strong>Diploma</strong></h4>
+                @Html.LabelFor(model => model.Diploma, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.Diploma)</h5>
+             </div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;height:70px;">
+
+
+                <h4 class="form-control" style="width:200px;height:38px; text-align:center; margin-left:20px;background-color:#0065B3;color:white; font-size:18px;"><strong>Hohors/BSC/BBA</strong></h4>
+                @Html.LabelFor(model => model.Honors, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.Honors)</h5>
+               </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.DVersity, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong>   @Html.DisplayFor(model => model.DVersity)</h5>
+</div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.HVersity, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong>  @Html.DisplayFor(model => model.HVersity)</h5>
+</div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.DDepartment, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong>   @Html.DisplayFor(model => model.DDepartment)</h5>
+</div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.HVDepartment, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong>   @Html.DisplayFor(model => model.HVDepartment)</h5>
+</div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.DYear, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong>   @Html.DisplayFor(model => model.DYear)</h5>
+</div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.HVYear, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong>  @Html.DisplayFor(model => model.HVYear)</h5>
+</div>
+            </div>
+
+        </div>
+
+        <div style="width:100%; height:150px;background-color:#F1F1F1;">
+            <br/>
+            <h4 class="form-control " style="width:350px;height:38px; text-align:center; margin-left:270px;background-color:#0065B3;color:white; font-size:18px;"><strong>Masters/MSC/MBA</strong></h4>
+
+            <div class="form-group  col-md-6" style="float:left;height:10px;">
+                
+                @Html.LabelFor(model => model.Masters, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.Masters)</h5>
+</div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left; height:10px;">
+                @Html.LabelFor(model => model.MVersity, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    <h5 style="font-size:17px;"><strong>:</strong>  @Html.DisplayFor(model => model.MVersity)</h5>
+</div>
+            </div>
+            <div class="form-group col-md-6" style="float:left;height:10px; ">
+                @Html.LabelFor(model => model.MVDepartment, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.MVDepartment)</h5>
+</div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left; height:10px;">
+                @Html.LabelFor(model => model.MVYear, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.MVYear)</h5>
+</div>
+            </div>
+
+        </div>
+
+        <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:350px;background-color:#16B7E2;color:white; font-size:18px;"><strong> Family Information</strong></h4>
+        <hr />
+
+        <div style="width:100%; height:90px;background-color:#F1F1F1;">
+
+           
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.FatherName, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    <h5 style="font-size:17px;"><strong>:</strong>   @Html.DisplayFor(model => model.FatherName)</h5>
+</div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.MotherName, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    <h5 style="font-size:17px;"><strong>:</strong>   @Html.DisplayFor(model => model.MotherName)</h5>
+
+</div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.FGovtIdNo, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    <h5 style="font-size:17px;"><strong>:</strong>   @Html.DisplayFor(model => model.FGovtIdNo) </h5>
+</div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    <h5 style="font-size:17px;"><strong>:</strong>   @Html.DisplayFor(model => model.Description) </h5>
+</div>
+            </div>
+
+        </div>
+
+        <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:350px;background-color:#16B7E2;color:white; font-size:18px;"><strong> Reference Information</strong></h4>
+        <hr/>
+
+        <div style="width:100%; height:170px;background-color:#F1F1F1;">
+
+
+            <div class="form-group col-md-6" style="float:left; height:70px;">
+            
+                <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:20px;background-color:#0065B3;color:white; font-size:18px;"><strong>First Reference</strong></h4>
+                @Html.LabelFor(model => model.FirstReferenceName, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.FirstReferenceName)</h5>
+</div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left; height:70px;">
+                
+                <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:20px;background-color:#0065B3;color:white; font-size:18px;"><strong>Second Reference</strong></h4>
+                @Html.LabelFor(model => model.SecondReferenceName, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.SecondReferenceName)</h5>
+</div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.FRAddress, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.FRAddress)</h5>
+</div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.SRAddress, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.SRAddress)</h5>
+</div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.FRPhone, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.FRPhone)</h5>
+</div>
+            </div>
+
+
+
+            <div class="form-group col-md-6" style="float:left;height:10px;">
+                @Html.LabelFor(model => model.SRPhone, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong> @Html.DisplayFor(model => model.SRPhone)</h5>
+</div>
+            </div>
+        </div>
+
+        <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:350px;background-color:#16B7E2;color:white; font-size:18px;"><strong> Job Duration</strong></h4>
+        <hr />
+        <div style="width:100%; height:100px;background-color:#F1F1F1; ">
+
+         
+
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.JoinDate, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong>  @Html.DisplayFor(model => model.JoinDate)</h5>
+</div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.ResignationDate, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    <h5 style="font-size:17px;"><strong>:</strong>  @Html.DisplayFor(model => model.ResignationDate)</h5>
+</div>
+            </div>
+        </div>
+
+       
+
+
+    </div>
+
+
+
+    
+
+
+        <a href="@Url.Action( "Index","Employees" ) ">
+            <img src="@Url.Content("~/Files/back.png") " style="height:50px; width:50px;" />
+        </a>
+
+        <button class="btn btn-warning" style="color:white;">
+            @Html.ActionLink("Edit", "Edit", null, new { id = Model.EmployeeID, style = "text-decoration: none;color:white; " })
+        </button>
+
+

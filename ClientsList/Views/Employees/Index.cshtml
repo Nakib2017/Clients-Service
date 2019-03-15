@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ClientsList.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="form-control" style="width:600px;height:50px; text-align:center; margin-left:220px;background-color:#F76400;color:white; font-size:23px;"><strong>  Employee List</strong></h2>
+
+<p>
+    <a href="@Url.Action( "Create","Employees" ) ">
+        <img src="@Url.Content("~/Files/creat.png") " style="height:80px; width:80px;" />
+    </a>
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageFile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </th>
+
+       
+        <th>
+            @Html.DisplayNameFor(model => model.OfficeId)
+        </th>
+
+     
+  
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designation)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.JoinDate)
+        </th>
+  
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Files/@item.ImageName"style="border-radius:10px;  width:100px; height:100px; "/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeName)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.OfficeId)
+        </td>
+       
+      
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.JoinDate)
+        </td>
+      
+        <td>
+            <a href="@Url.Action( "Edit","Employees", new { id=item.EmployeeID } ) ">
+                <img src="@Url.Content("~/Files/edit.png") " style="height:50px; width:50px;" />
+            </a>
+            <a href="@Url.Action( "Details","Employees", new { id=item.EmployeeID } ) ">
+                <img src="@Url.Content("~/Files/dtails.png") " style="height:50px; width:50px;" />
+            </a>
+           
+            <a href="@Url.Action( "Delete","Employees", new { id=item.EmployeeID } ) ">
+                <img src="@Url.Content("~/Files/delete.png") " style="height:50px; width:50px;" />
+            </a>
+          
+        </td>
+    </tr>
+}
+
+</table>

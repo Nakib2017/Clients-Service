@@ -1,0 +1,428 @@
+﻿@model ClientsList.Models.Employee
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 class="form-control" style="width:600px;height:50px; text-align:center; margin-left:220px;background-color:#F76400;color:white; font-size:23px;"><strong> Create Employee Page</strong></h2>
+<hr />
+
+@using (Html.BeginForm("Create", "Employees", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+      
+        <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:320px;background-color:#16B7E2;color:white; font-size:18px;"><strong> Employee Imformation</strong></h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div style="height:300px;width:100%; background-color:#F1F1F1; ">
+
+            <div class="form-group " style="margin-top:20px; margin-left:300px;">
+                @Html.LabelFor(model => model.ImageFile, htmlAttributes: new { @class = "control-label col-md-2", style = "text-align:left;" })
+                <div class="col-md-10">
+
+
+                    <input name="file" type="file" value="" />
+
+
+                </div>
+            </div>
+            <div class="form-group " style="margin-left:300px;">
+                @Html.LabelFor(model => model.EmployeeName, htmlAttributes: new { @class = "control-label col-md-2", style = "text-align:left;" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EmployeeName, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.EmployeeName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group " style="margin-left:300px;">
+                @Html.LabelFor(model => model.OfficeId, htmlAttributes: new { @class = "control-label col-md-2", style = "text-align:left;" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.OfficeId, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.OfficeId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.PhoneNo, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.GovtIdNo, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.GovtIdNo, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.GovtIdNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.Designation, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Designation, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.Experience, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Experience, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.PresentAddress, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.PresentAddress, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.PresentAddress, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.permanentAddress, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.permanentAddress, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.permanentAddress, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+       
+      
+        <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:320px;background-color:#16B7E2;color:white; font-size:18px;"><strong> Educational Qualification</strong></h4>
+
+
+            <hr />
+
+        <div style="width:100%; height:270px;background-color:#F1F1F1;">
+
+            <div class="form-group col-md-6" style="float:left;">
+                <h4 class="form-control" style="width:100px;height:38px; text-align:center; margin-left:275px;background-color:#0065B3;color:white; font-size:18px;"><strong>SSC</strong></h4>
+                @Html.LabelFor(model => model.SSC, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EnumDropDownListFor(model => model.SSC, htmlAttributes: new { @class = "form-control", style = "border-color:#B4CE45;" })
+                    @Html.ValidationMessageFor(model => model.SSC, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;">
+                <h4 class="form-control" style="width:100px;height:38px; text-align:center; margin-left:275px;background-color:#0065B3;color:white; font-size:18px;"><strong>HSC</strong></h4>
+                @Html.LabelFor(model => model.HSC, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EnumDropDownListFor(model => model.HSC, htmlAttributes: new { @class = "form-control", style = "border-color:#B4CE45;" })
+                    @Html.ValidationMessageFor(model => model.HSC, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.SBroad, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EnumDropDownListFor(model => model.SBroad, htmlAttributes: new { @class = "form-control", style = "border-color:#B4CE45;" })
+                    @Html.ValidationMessageFor(model => model.SBroad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.HBroad, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EnumDropDownListFor(model => model.HBroad, htmlAttributes: new { @class = "form-control", style = "border-color:#B4CE45;" })
+                    @Html.ValidationMessageFor(model => model.HBroad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.SYear, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.SYear, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.SYear, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.HYear, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.HYear, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.HYear, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            </div>
+        <hr />
+
+        <div style="width:100%; height:300px;background-color:#F1F1F1;">
+
+            <div class="form-group col-md-6" style="float:left;">
+
+                <h4 class="form-control" style="width:100px;height:38px; text-align:center; margin-left:275px;background-color:#0065B3;color:white; font-size:18px;"><strong>Diploma</strong></h4>
+                @Html.LabelFor(model => model.Diploma, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EnumDropDownListFor(model => model.Diploma, htmlAttributes: new { @class = "form-control", style = "border-color:#B4CE45;" })
+                    @Html.ValidationMessageFor(model => model.Diploma, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;">
+
+
+                <h4 class="form-control" style="width:200px;height:38px; text-align:center; margin-left:230px;background-color:#0065B3;color:white; font-size:18px;"><strong>Hohors/BSC/BBA</strong></h4>
+                @Html.LabelFor(model => model.Honors, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EnumDropDownListFor(model => model.Honors, htmlAttributes: new { @class = "form-control", style = "border-color:#B4CE45;" })
+                    @Html.ValidationMessageFor(model => model.Honors, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.DVersity, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.DVersity, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.DVersity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.HVersity, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.HVersity, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.HVersity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.DDepartment, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.DDepartment, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.DDepartment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.HVDepartment, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.HVDepartment, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.HVDepartment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.DYear, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.DYear, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.DYear, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.HVYear, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.HVYear, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.HVYear, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            </div>
+        <hr />
+        <div style="width:100%; height:200px;background-color:#F1F1F1;">
+
+            <h4 class="form-control " style="width:350px;height:38px; text-align:center; margin-left:450px;background-color:#0065B3;color:white; font-size:18px;"><strong>Masters/MSC/MBA</strong></h4>
+            <br/>
+
+            <div class="form-group  col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.Masters, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    @Html.EnumDropDownListFor(model => model.Masters, htmlAttributes: new { @class = "form-control", style = "border-color:#B4CE45;" })
+                    @Html.ValidationMessageFor(model => model.Masters, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left; margin-left:20px;">
+                @Html.LabelFor(model => model.MVersity, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.MVersity, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.MVersity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group col-md-6" style="float:left; ">
+                @Html.LabelFor(model => model.MVDepartment, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.MVDepartment, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.MVDepartment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left; margin-left:20px;">
+                @Html.LabelFor(model => model.MVYear, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.MVYear, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.MVYear, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+
+        <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:320px;background-color:#16B7E2;color:white; font-size:18px;"><strong> Family Information</strong></h4>
+        <hr />
+        <div style="width:100%; height:150px;background-color:#F1F1F1;">
+
+         
+            
+            <div class="form-group col-md-6" style="float:left;margin-top:20px;">
+                @Html.LabelFor(model => model.FatherName, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;margin-top:20px;">
+                @Html.LabelFor(model => model.MotherName, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.MotherName, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.FGovtIdNo, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.FGovtIdNo, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.FGovtIdNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            </div>
+
+        <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:320px;background-color:#16B7E2;color:white; font-size:18px;"><strong> Reference Information</strong></h4>
+        <hr />
+        <div style="width:100%; height:250px;background-color:#F1F1F1;">
+         
+
+
+            <div class="form-group col-md-6" style="float:left;">
+              
+                <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:20px;background-color:#0065B3;color:white; font-size:18px;"><strong>First Reference</strong></h4>
+                @Html.LabelFor(model => model.FirstReferenceName, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FirstReferenceName, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.FirstReferenceName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:20px;background-color:#0065B3;color:white; font-size:18px;"><strong>Second Reference</strong></h4>
+                @Html.LabelFor(model => model.SecondReferenceName, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.SecondReferenceName, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.SecondReferenceName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.FRAddress, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FRAddress, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.FRAddress, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.SRAddress, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.SRAddress, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.SRAddress, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.FRPhone, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FRPhone, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.FRPhone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group col-md-6" style="float:left;">
+                @Html.LabelFor(model => model.SRPhone, htmlAttributes: new { @class = "control-label col-md-5", style = "text-align:left;" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.SRPhone, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.SRPhone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+         </div>
+
+
+        <h4 class="form-control" style="width:400px;height:38px; text-align:center; margin-left:320px;background-color:#16B7E2;color:white; font-size:18px;"><strong> Job Duration</strong></h4>
+        <hr />
+        <div style="width:100%; height:100px;background-color:#F1F1F1; ">
+        
+    
+
+            <div class="form-group col-md-6" style="float:left;margin-top:30px;">
+                @Html.LabelFor(model => model.JoinDate, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.JoinDate, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.JoinDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="float:left;margin-top:30px;">
+                @Html.LabelFor(model => model.ResignationDate, htmlAttributes: new { @class = "control-label col-md-4", style = "text-align:left;" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.ResignationDate, new { htmlAttributes = new { @class = "form-control", style = "border-color:#B4CE45;" } })
+                    @Html.ValidationMessageFor(model => model.ResignationDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-md-offset-2 col-md-10" style="margin-left:500px;margin-top:20px;">
+                    <input type="submit" value="Create" class="btn btn-success " style="height:50px; width:200px; font-size:20px;" />
+                </div>
+            </div>
+
+
+        </div>
+
+}
+
+<div>
+    <a href="@Url.Action( "Index","Employees" ) ">
+        <img src="@Url.Content("~/Files/back.png") " style="height:50px; width:50px;" />
+    </a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,198 @@
+﻿@model IEnumerable<ClientsList.Models.Cleint>
+
+@{
+    ViewBag.Title = "Search Client";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Client List</h2>
+
+<button style="background-color: lightpink; border-radius: 5px;border: none;width:100px;height:40px;margin-left:5px;">
+
+    <h6 style="text-align:center; "><strong>   @Html.ActionLink("Back to List", "Index",null, new { style = "text-decoration:none;color:white;font-size: 15px ;margin-top:10px;" }) </strong></h6>
+</button>
+
+<table class="table">
+    <tr>
+        <th>
+            <h7> Status</h7>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientName)
+        </th>
+   
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductModel)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NextServiceDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        if (item.NextServiceDate < DateTime.Today)
+        {
+            <tr>
+                <td>
+                    <div style="background-color: red ; border-radius:100px;height:20px;width:20px;">
+
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientName)
+                </td>
+            
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductModel)
+                </td>
+             
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.NextServiceDate)
+
+                </td>
+
+                <td>
+                    <button style="background-color: cornflowerblue; border-radius: 5px;border: none;width:60px;height:40px;margin-left:5px;">
+
+                        <h6 style="text-align:center; "><strong>   @Html.ActionLink("Edit", "Edit", new { id = item.ClientID }, new { style = "text-decoration:none;color:white;font-size: 15px ;margin-top:10px;" }) </strong></h6>
+                    </button>
+
+                    <button style="background-color: yellowgreen; border-radius: 5px;border: none;width:60px;height:40px;margin-left:5px;">
+
+                        <h6 style="text-align:center; "><strong>   @Html.ActionLink("Details", "Details", new { id = item.ClientID }, new { style = "text-decoration:none;color:white;font-size: 15px ;margin-top:10px;" }) </strong></h6>
+                    </button>
+
+                    <button style="background-color: red; border-radius: 5px;border: none;width:60px;height:40px;margin-left:5px;">
+
+                        <h6 style="text-align:center; "><strong>   @Html.ActionLink("Delete", "Delete", new { id = item.ClientID }, new { style = "text-decoration:none;color:white;font-size: 15px ;margin-top:10px;" }) </strong></h6>
+                    </button>
+
+                </td>
+
+
+            </tr>
+
+
+
+        }
+
+        else if (item.NextServiceDate == DateTime.Today)
+        {
+            <tr>
+                <td>
+                    <div style="background-color: orange ; border-radius:100px;height:20px;width:20px;">
+
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientName)
+                </td>
+          
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductModel)
+                </td>
+       
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.NextServiceDate)
+
+                </td>
+
+                <td>
+                    <button style="background-color: cornflowerblue; border-radius: 5px;border: none;width:60px;height:40px;margin-left:5px;">
+
+                        <h6 style="text-align:center; "><strong>   @Html.ActionLink("Edit", "Edit", new { id = item.ClientID }, new { style = "text-decoration:none;color:white;font-size: 15px ;margin-top:10px;" }) </strong></h6>
+                    </button>
+
+                    <button style="background-color: yellowgreen; border-radius: 5px;border: none;width:60px;height:40px;margin-left:5px;">
+
+                        <h6 style="text-align:center; "><strong>   @Html.ActionLink("Details", "Details", new { id = item.ClientID }, new { style = "text-decoration:none;color:white;font-size: 15px ;margin-top:10px;" }) </strong></h6>
+                    </button>
+
+                    <button style="background-color: red; border-radius: 5px;border: none;width:60px;height:40px;margin-left:5px;">
+
+                        <h6 style="text-align:center; "><strong>   @Html.ActionLink("Delete", "Delete", new { id = item.ClientID }, new { style = "text-decoration:none;color:white;font-size: 15px ;margin-top:10px;" }) </strong></h6>
+                    </button>
+                </td>
+
+
+            </tr>
+
+
+
+        }
+
+        else
+        {
+            <tr>
+                <td></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientName)
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNo)
+                </td>
+           
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.NextServiceDate)
+
+                </td>
+
+                <td>
+                    <button style="background-color: cornflowerblue; border-radius: 5px;border: none;width:60px;height:40px;margin-left:5px;">
+
+                        <h6 style="text-align:center; "><strong>   @Html.ActionLink("Edit", "Edit", new { id = item.ClientID }, new { style = "text-decoration:none;color:white;font-size: 15px ;margin-top:10px;" }) </strong></h6>
+                    </button>
+
+                    <button style="background-color: yellowgreen; border-radius: 5px;border: none;width:60px;height:40px;margin-left:5px;">
+
+                        <h6 style="text-align:center; "><strong>   @Html.ActionLink("Details", "Details", new { id = item.ClientID }, new { style = "text-decoration:none;color:white;font-size: 15px ;margin-top:10px;" }) </strong></h6>
+                    </button>
+
+                    <button style="background-color: red; border-radius: 5px;border: none;width:60px;height:40px;margin-left:5px;">
+
+                        <h6 style="text-align:center; "><strong>   @Html.ActionLink("Delete", "Delete", new { id = item.ClientID }, new { style = "text-decoration:none;color:white;font-size: 15px ;margin-top:10px;" }) </strong></h6>
+                    </button>
+                </td>
+
+
+            </tr>
+
+
+
+        }
+    }
+</table>
+
+
+
+
+

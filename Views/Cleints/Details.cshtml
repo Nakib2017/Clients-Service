@@ -1,0 +1,129 @@
+﻿@model ClientsList.Models.Cleint
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cleint</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNo)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SetupDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SetupDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OldServiceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OldServiceDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NextServiceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NextServiceDate)
+        </dd>
+        <dt>
+           <h7>Nest Service Deu Date :</h7>
+        </dt>
+
+        <dd>
+            <p id="demo">
+
+            </p>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<script>
+
+    // Set the date we're counting down to
+
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            var countDownDate = new Date("  @Html.DisplayFor(model => model.NextServiceDate)").getTime();
+
+            // Get todays date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            // If the count down is over, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
+
+        </script>
